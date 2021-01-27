@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Basic" thread-count="2" parallel="tests">
+
+
+    <parameter name="Url" value="http://automationpractice.com/index.php"/>
+    <parameter name="browser" value="Chrome"/>
+    <parameter name="searchValue" value="Dress"/>
+    <parameter name="wrongSearchValue" value="hy34"/>
+    <test name="web-automation-java">
+        <classes>
+            <class name="tests.CartTest">
+                <methods>
+                    <include name="addItemToCartTest"/>
+                    <include name="deleteItemFromCartTest"/>
+                    <include name="searchStoresInfo"/>
+                </methods>
+            </class>
+            <class name="tests.searchTest">
+                <methods>
+                    <include name="searchForItemTest"/>
+                    <include name="unsuccessfulSearchForItemTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
