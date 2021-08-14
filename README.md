@@ -7,6 +7,6 @@ Tools
 - Testng
 - Maven
 
-Support Chrome version #88.0.4324.104
+Support Chrome version #92.0.4515.107
 
 It is configured to use Firefox, need to add the geckodriver and add few lines of code to support it.

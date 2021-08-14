@@ -3,23 +3,18 @@
 <suite name="Basic" thread-count="2" parallel="tests">
 
 
-    <parameter name="Url" value="http://automationpractice.com/index.php"/>
+    <parameter name="Url" value="http://3.87.50.247:3000/"/>
     <parameter name="browser" value="Chrome"/>
-    <parameter name="searchValue" value="Dress"/>
-    <parameter name="wrongSearchValue" value="hy34"/>
+    <parameter name="firstName" value="Jairo"/>
+    <parameter name="LastName" value="Lopez"/>
+    <parameter name="email" value="test@test.com"/>
+    <parameter name="birthday" value="1999-05-10"/>
     <test name="web-automation-java">
         <classes>
-            <class name="tests.CartTest">
+            <class name="tests.singinTests">
                 <methods>
-                    <include name="addItemToCartTest"/>
-                    <include name="deleteItemFromCartTest"/>
-                    <include name="searchStoresInfo"/>
-                </methods>
-            </class>
-            <class name="tests.searchTest">
-                <methods>
-                    <include name="searchForItemTest"/>
-                    <include name="unsuccessfulSearchForItemTest"/>
+                    <include name="createAccount"/>
+                    <include name="createAccountwithWoman"/>
                 </methods>
             </class>
         </classes>

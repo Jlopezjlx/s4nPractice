@@ -5,23 +5,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import  org.testng.annotations.*;
-import java.util.concurrent.TimeUnit;
-import core.pages.homePage;
-import core.pages.cartPage;
+import core.pages.signinPage;
 
 public class baseTest {
     protected static String ChromeDriverPath;
     protected static String FirefoxDriverPath;
     protected static ChromeOptions chromeOptions;
     protected static WebDriver driver;
-    homePage homePage;
-    cartPage cartPage;
+    signinPage signinPage;
 
     @BeforeMethod
     @Parameters({"Url", "browser"})
-    public void SetUp( String Url, String browser){
+    public void SetUp( String Url, String browser) throws InterruptedException {
         if (browser.equalsIgnoreCase("Firefox")) {
             FirefoxDriverPath = "";
         }
@@ -32,16 +28,13 @@ public class baseTest {
             chromeOptions.addArguments("--start-maximized");
             driver = new ChromeDriver(chromeOptions);
             driver.get(Url);
+            Thread.sleep(500);
         }
-        homePage = new homePage(driver);
-        cartPage = new cartPage(driver);
+        signinPage = new signinPage(driver);
     }
 
     @AfterMethod
     public void tearDownMain() {
-        driver.manage().deleteAllCookies();
-        driver.get("chrome://settings/clearBrowserData");
-        driver.findElement(By.xpath("//settings-ui")).sendKeys(Keys.ENTER);
         driver.close();
     }
 }
